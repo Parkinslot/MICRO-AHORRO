@@ -3,7 +3,7 @@ import sqlite3
 
 def conectar():
 
-    conn = sqlite3.connect("ahorros.db")
+    conn = sqlite3.connect("ahorros2.db")
 
     return conn
 
