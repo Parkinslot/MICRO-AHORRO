@@ -13,18 +13,13 @@ from config import ALIAS
 # Crear base si no existe
 crear_tabla()
 
-
 def ahorro_diario():
-
     monto = generar_monto()
-
     ahora = datetime.now()
 
     fecha = ahora.strftime("%Y-%m-%d %H:%M:%S")
-
     fecha_dia = ahora.strftime("%Y-%m-%d")
 
-    # Guardar ahorro (solo 1 por día)
     guardado = guardar_ahorro(fecha, fecha_dia, monto)
 
     if not guardado:
@@ -37,35 +32,25 @@ def ahorro_diario():
 💰 AHORRO HORMIGA
 
 📅 Fecha: {fecha_dia}
-
-💵 Hoy deberías ahorrar: ${monto}
+💵 Hoy: ${monto}
 
 🏦 Alias:
 {ALIAS}
 
-📊 ESTADÍSTICAS
-
-💰 Total acumulado: ${stats['total']}
-📆 Días ahorrando: ${stats['cantidad']}
-📈 Promedio diario: ${stats['promedio']}
-
-🔥 Seguimos construyendo el hábito.
+💰 Total: ${stats['total']}
+📆 Días: ${stats['cantidad']}
+📈 Promedio: ${stats['promedio']}
 """
 
     enviar_whatsapp(mensaje)
 
-    print("\n========================")
     print(mensaje)
-    print("✅ WhatsApp enviado")
-    print("========================\n")
 
 
-# 🔔 EJECUCIÓN DIARIA REAL
-schedule.every().day.at("11:20").do(ahorro_diario)
+schedule.every(10).minutes.do(ahorro_diario)
 
 print("🚀 Sistema iniciado...")
 print("Esperando ejecución...")
-
 
 while True:
     schedule.run_pending()
