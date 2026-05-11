@@ -15,3 +15,4 @@ TU_WHATSAPP = os.getenv("TU_WHATSAPP")
 
 # AHORRO
 ALIAS = os.getenv("ALIAS")
+

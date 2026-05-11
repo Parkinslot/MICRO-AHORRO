@@ -61,7 +61,7 @@ def ahorro_diario():
 
 
 # 🔔 EJECUCIÓN DIARIA REAL
-schedule.every().day.at("11:11").do(ahorro_diario)
+schedule.every().day.at("11:20").do(ahorro_diario)
 
 print("🚀 Sistema iniciado...")
 print("Esperando ejecución...")
