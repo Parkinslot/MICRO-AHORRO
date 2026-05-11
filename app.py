@@ -14,7 +14,10 @@ from stats import obtener_estadisticas
 
 from whatsapp import enviar_whatsapp
 
-from config import ALIAS
+from config import (
+    ALIAS,
+    MODO_TEST
+)
 
 
 # Crear tabla
@@ -30,6 +33,11 @@ def ahorro_diario():
     fecha = ahora.strftime("%Y-%m-%d %H:%M:%S")
 
     fecha_dia = ahora.strftime("%Y-%m-%d")
+
+    # En modo test permite múltiples
+    if MODO_TEST:
+
+        fecha_dia = fecha
 
     # Guardar ahorro
     guardado = guardar_ahorro(
@@ -65,7 +73,7 @@ def ahorro_diario():
 📆 Días ahorrando: {stats['cantidad']}
 📈 Promedio diario: ${stats['promedio']}
 
-🔥 Crezco economicamente dia a dia
+🔥 Seguimos construyendo el hábito.
 """
 
     # Enviar WhatsApp
@@ -78,7 +86,7 @@ def ahorro_diario():
     print("========================\n")
 
 
-# EJECUCIÓN DIARIA
+# TEST RÁPIDO
 schedule.every(30).seconds.do(ahorro_diario)
 
 print("🚀 Sistema iniciado...")
