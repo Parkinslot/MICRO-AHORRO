@@ -47,7 +47,7 @@ def ahorro_diario():
     print(mensaje)
 
 
-schedule.every(10).minutes.do(ahorro_diario)
+schedule.every().day.at("10:00").do(ahorro_diario)
 
 print("🚀 Sistema iniciado...")
 print("Esperando ejecución...")
