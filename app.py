@@ -79,7 +79,7 @@ def ahorro_diario():
 
 
 # EJECUCIÓN DIARIA
-schedule.every(20).seconds.do(ahorro_diario)
+schedule.every(30).seconds.do(ahorro_diario)
 
 print("🚀 Sistema iniciado...")
 print("Esperando ejecución...")
